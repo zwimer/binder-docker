@@ -1,2 +1,3 @@
-# binder-docker
-Dockerized https://github.com/RosettaCommons/binder/
+# Options
+
+Set `CLANG_VERSION` to which-ever major version is desired. Default is `14`.
