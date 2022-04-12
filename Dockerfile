@@ -35,13 +35,10 @@ RUN apt-get install -yq \
 RUN git clone "https://github.com/RosettaCommons/binder.git" /binder
 
 # Build
-ARG LLVM_DIR="/usr/lib/llvm-10/"
 WORKDIR "/build"
 RUN cmake \
 	-DCMAKE_CXX_COMPILER="$(which clang++-"${CLANG_VERSION}")" \
 	-DBINDER_ENABLE_TEST=OFF \
-	-DLLVM_DIR="${LLVM_DIR}" \
-	-DClang_DIR="${LLVM_DIR}" \
 	/binder
 RUN make "-j$(nproc)"
 RUN make install
